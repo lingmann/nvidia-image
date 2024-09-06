@@ -23,10 +23,10 @@ stages:
     type: apt
     source:
       packages:
-      - nvidia-driver
+      - nvidia-legacy-340xx-driver
       - nvidia-vaapi-driver
-      - nvidia-settings
-      - nvidia-smi
+      - nvidia-legacy-340xx-alternative
+      - nvidia-legacy-340xx-smi
       - firmware-misc-nonfree
 
   - name: nvidia-sysd-units
@@ -82,8 +82,8 @@ stages:
       - name: remove-prev-fsguard
         type: shell
         commands:
-          - rm -rf /FsGuard 
-          - rm -f ./minisign.pub ./minisign.key 
+          - rm -rf /FsGuard
+          - rm -f ./minisign.pub ./minisign.key
           - chmod +x /usr/sbin/init
 
   - name: cleanup2
